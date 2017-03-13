@@ -1,0 +1,18 @@
+#jinja2: trim_blocks: "true", lstrip_blocks: "true"
+# n2n - Starts the n2n edge program that connects to the network
+#
+# This happens automatically when the network device is up.
+
+description "connect using n2n"
+
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on shutdown
+
+expect fork
+exec {{ n2n_install_dir }}/{{ n2n_name }}/edge -a {{ n2n_ip }} -c {{ n2n_community }} {% if n2n_key %} -k {{ n2n_key }} {% endif %} -l {{ n2n_supernode }}:1200 {% if n2n_accept_multicast %} -E {% endif %}
+
+post-start script
+  route add -net 224.0.0.0 netmask 240.0.0.0 dev edge0
+end script
+
+respawn

@@ -1,0 +1,21 @@
+---
+
+- name: render upstart config
+  template:
+    src: n2n.upstart.j2
+    dest: "/etc/init/n2n.conf"
+    mode: "0640"
+  notify:
+    - restart n2n
+  when: n2n_use_upstart
+
+- meta: flush_handlers
+
+- name: Enable and start the service
+  service:
+    name: n2n
+    state: started
+    enabled: yes
+  when:
+    - n2n_manage_service
+    - not ansible_check_mode

@@ -1,0 +1,9 @@
+---
+# handlers file for akostyrev.n2n
+- name: restart n2n
+  service:
+    name: n2n
+    state: restarted
+  when:
+    - n2n_manage_service
+    - not ansible_check_mode

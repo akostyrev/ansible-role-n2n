@@ -1,0 +1,9 @@
+---
+# tasks file for akostyrev.n2n
+
+- include: install-tar.yml
+  when: n2n_install_from_tag_gz
+
+- include: configure.yml
+  tags:
+    - config

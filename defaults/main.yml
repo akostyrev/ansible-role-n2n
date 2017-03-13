@@ -1,0 +1,33 @@
+---
+# defaults file for akostyrev.n2n
+n2n_install_from_tag_gz: no
+n2n_install_from_git: no
+n2n_install_from_package: no
+
+n2n_user: root
+n2n_group: "{{ n2n_user }}"
+n2n_name: n2n
+n2n_download_file: "{{ n2n_name }}_v2.tar.gz"
+n2n_base_download_url: ""
+n2n_download_url: "{{ n2n_base_download_url }}/{{ n2n_download_file }}"
+n2n_download_dir: /tmp
+n2n_install_dir: /opt
+
+n2n_use_upstart: "{{ 'true' if n2n_install_from_tag_gz else 'false' }}"
+n2n_manage_service: yes
+# Sets the n2n community name. All edges within the same community appear on
+# the same LAN (layer 2 network segment). Community name is 16 bytes in length.
+n2n_community: "MyCommunityName"
+
+# Sets the twofish encryption key from ASCII text. All edges communicating must
+# use the same key and community name.
+n2n_key: ''
+
+# Sets the n2n supernode IP address to register to.
+n2n_supernode: "gw1.example.com"
+
+# Sets the n2n virtual LAN IP address being claimed. This is a private IP
+# address. All IP addresses in an n2n community typical belong to the same /24
+# net‐ work (ie. only the last octet of the IP addresses varies).
+n2n_ip: "{{ ansible_default_ipv4.address }}"
+n2n_accept_multicast: False

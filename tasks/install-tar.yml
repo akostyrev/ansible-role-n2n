@@ -1,0 +1,30 @@
+---
+
+- debug: var=n2n_base_download_url
+
+- fail:
+    msg: "n2n_base_download_url is not defined"
+  when: n2n_base_download_url == ""
+
+- name: Download n2n
+  get_url:
+    url: "{{ n2n_download_url }}"
+    dest: "{{ n2n_download_dir }}/{{ n2n_download_file }}"
+
+- name: make sure install dir exists
+  file:
+    path: "{{ n2n_install_dir }}/{{ n2n_name }}"
+    owner: "{{ n2n_user }}"
+    group: "{{ n2n_group }}"
+    mode: "0750"
+    state: directory
+
+- name: Unarchive downloaded file
+  unarchive:
+    src: "{{ n2n_download_dir }}/{{ n2n_download_file }}"
+    dest: "{{ n2n_install_dir }}/{{ n2n_name }}"
+    owner: "{{ n2n_user }}"
+    group: "{{ n2n_group }}"
+    mode: "u=rwX,g=rX,o="
+    copy: no
+    creates: "{{ n2n_install_dir }}/edge"
