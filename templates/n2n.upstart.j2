@@ -13,7 +13,8 @@ exec {{ n2n_install_dir }}/{{ n2n_name }}/edge -a {{ n2n_ip }} -c {{ n2n_communi
 
 {% if n2n_post_start %}
 post-start script
-  route add -net 224.0.0.0 netmask 240.0.0.0 dev edge0
+  /bin/sleep 2
+  /sbin/route add -net 224.0.0.0 netmask 240.0.0.0 dev edge0
 end script
 {% endif %}
 
