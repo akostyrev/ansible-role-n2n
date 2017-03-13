@@ -31,3 +31,4 @@ n2n_supernode: "gw1.example.com"
 # net‐ work (ie. only the last octet of the IP addresses varies).
 n2n_ip: "{{ ansible_default_ipv4.address }}"
 n2n_accept_multicast: False
+n2n_post_start: False
