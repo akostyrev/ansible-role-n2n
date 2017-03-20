@@ -1,14 +1,8 @@
-- name: Enable n2n service
-  service:
-    name: n2n
-    enabled: yes
-  when:
-    - not ansible_check_mode
-
 - name: Enable and start the service
   service:
     name: n2n
     state: started
+    enabled: yes
   when:
     - n2n_manage_service
     - not ansible_check_mode
