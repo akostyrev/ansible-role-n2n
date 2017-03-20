@@ -7,3 +7,5 @@
 - include: configure.yml
   tags:
     - config
+
+- include: service.yml
