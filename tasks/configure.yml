@@ -10,4 +10,3 @@
   when: n2n_use_upstart
 
 - meta: flush_handlers
-
