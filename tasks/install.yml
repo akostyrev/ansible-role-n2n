@@ -1,0 +1,2 @@
+- include: install-tar.yml
+  when: n2n_install_from_tar_gz
