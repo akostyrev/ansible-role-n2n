@@ -3,7 +3,7 @@
   roles:
     - role: akostyrev.n2n
       vars:
-        n2n_install_from_tag_gz: yes
+        n2n_install_from_tar_gz: yes
         n2n_manage_service: no
         n2n_supernode: 172.17.17.232
         n2n_ip: "192.168.10.{{ ansible_default_ipv4.address.rpartition('.')[2] }}"
