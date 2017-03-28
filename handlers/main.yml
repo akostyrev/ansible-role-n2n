@@ -4,6 +4,7 @@
   service:
     name: n2n
     state: restarted
+    enabled: yes
   when:
     - n2n_manage_service
     - not ansible_check_mode
