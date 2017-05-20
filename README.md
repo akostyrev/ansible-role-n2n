@@ -9,7 +9,7 @@ Example Playbook
 ```yaml
 - hosts: all
   roles:
-    - role: akostyrev.n2n
+    - role: kostyrev.n2n
       vars:
         n2n_install_from_tar_gz: yes
         n2n_base_download_url: http://mirror.example.com

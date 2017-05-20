@@ -1,5 +1,5 @@
 ---
-# handlers file for akostyrev.n2n
+# handlers file for kostyrev.n2n
 - name: restart n2n
   service:
     name: n2n

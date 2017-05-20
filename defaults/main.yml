@@ -1,5 +1,5 @@
 ---
-# defaults file for akostyrev.n2n
+# defaults file for kostyrev.n2n
 n2n_install_from_tar_gz: yes
 n2n_install_from_git: no
 n2n_install_from_package: no

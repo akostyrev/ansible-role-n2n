@@ -7,6 +7,6 @@ driver:
 
 docker:
   containers:
-    - name: akostyrev.n2n
+    - name: kostyrev.n2n
       image: ubuntu
       image_version: '14.04'
