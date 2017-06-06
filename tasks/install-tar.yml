@@ -2,7 +2,8 @@
 
 - debug: var=n2n_base_download_url
 
-- fail:
+- name: check if n2n_base_download_url is defined
+  fail:
     msg: "n2n_base_download_url is not defined"
   when: n2n_base_download_url == ""
 
