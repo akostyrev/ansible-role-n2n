@@ -1,8 +1,8 @@
 ---
 
-- name: render upstart config
+- name: render upstart config for edge
   template:
-    src: n2n.upstart.j2
+    src: edge.upstart.j2
     dest: "/etc/init/n2n.conf"
     mode: "0640"
   notify:
