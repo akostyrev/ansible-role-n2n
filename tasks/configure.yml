@@ -9,4 +9,15 @@
     - restart n2n
   when: n2n_use_upstart
 
+- name: render upstart config for supernode
+  template:
+    src: supernode.upstart.j2
+    dest: "/etc/init/n2n.conf"
+    mode: "0640"
+  notify:
+    - restart supernode
+  when:
+    - n2n_supernode_enable
+    - supernode_use_upstart
+
 - meta: flush_handlers

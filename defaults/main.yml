@@ -4,6 +4,7 @@ n2n_install_from_tar_gz: yes
 n2n_install_from_git: no
 n2n_install_from_package: no
 
+n2n_supernode_enable: no
 n2n_user: root
 n2n_group: "{{ n2n_user }}"
 n2n_name: n2n
@@ -14,6 +15,7 @@ n2n_download_dir: /tmp
 n2n_install_dir: /opt
 
 n2n_use_upstart: "{{ 'true' if n2n_install_from_tar_gz else 'false' }}"
+supernode_use_upstart: true
 n2n_manage_service: yes
 # Sets the n2n community name. All edges within the same community appear on
 # the same LAN (layer 2 network segment). Community name is 16 bytes in length.
